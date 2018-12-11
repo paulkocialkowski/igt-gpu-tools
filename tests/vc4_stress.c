@@ -110,7 +110,7 @@ void bandwidth_limit_check(int drm_fd, igt_display_t *display,
 	for (i = 0; i < pipe->n_planes; i++) {
 		igt_plane_t *plane = &pipe->planes[i];
 
-		if (plane->type != DRM_PLANE_TYPE_OVERLAY)
+		if (plane->type == DRM_PLANE_TYPE_OVERLAY)
 			overlay_planes_max++;
 	}
 
