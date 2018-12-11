@@ -201,6 +201,7 @@ void bandwidth_limit_check(int drm_fd, igt_display_t *display,
 			if (plane->type != DRM_PLANE_TYPE_OVERLAY)
 				continue;
 
+			igt_plane_set_fb(plane, NULL);
 			igt_remove_fb(drm_fd, overlay_fb);
 
 			overlay_planes_index++;
@@ -209,6 +210,7 @@ void bandwidth_limit_check(int drm_fd, igt_display_t *display,
 		free(overlay_fbs);
 	} while (tries-- > 0);
 
+	igt_plane_set_fb(primary_plane, NULL);
 	igt_remove_fb(drm_fd, &primary_fb);
 
 	close(debugfs);
