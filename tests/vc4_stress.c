@@ -186,6 +186,10 @@ void bandwidth_limit_check(int drm_fd, igt_display_t *display,
 		} else {
 			overlay_width *= 2;
 			overlay_height *= 2;
+
+			if (overlay_width > mode->hdisplay ||
+			    overlay_height > mode->vdisplay)
+				igt_assert(false);
 		}
 /*
 		for (i = 0, overlay_planes_index = 0;
