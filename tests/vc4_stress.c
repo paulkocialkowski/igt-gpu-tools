@@ -187,7 +187,7 @@ void bandwidth_limit_check(int drm_fd, igt_display_t *display,
 			overlay_width *= 2;
 			overlay_height *= 2;
 		}
-
+/*
 		for (i = 0, overlay_planes_index = 0;
 		     i < pipe->n_planes && overlay_planes_index < overlay_planes_count;
 		     i++) {
@@ -201,7 +201,7 @@ void bandwidth_limit_check(int drm_fd, igt_display_t *display,
 
 			overlay_planes_index++;
 		}
-
+*/
 		free(overlay_fbs);
 	} while (tries-- > 0);
 
